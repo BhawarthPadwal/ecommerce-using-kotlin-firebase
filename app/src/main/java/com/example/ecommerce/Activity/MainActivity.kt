@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.ecommerce.R
+import com.example.ecommerce.Adapter.CategoryAdapter
 import com.example.ecommerce.ViewModel.MainViewModel
 import com.example.ecommerce.databinding.ActivityMainBinding
 
@@ -23,6 +23,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initBanner()
+        initCategory()
+    }
+
+    private fun initCategory() {
+        binding.progressBarCategory.visibility = View.VISIBLE
+        viewModel.loadCategory().observeForever {
+            binding.categoryView.layoutManager = LinearLayoutManager(
+                this@MainActivity,
+                RecyclerView.HORIZONTAL,
+                false
+            )
+            binding.categoryView.adapter = CategoryAdapter(it)
+            binding.progressBarCategory.visibility = View.GONE
+        }
+        viewModel.loadCategory()
     }
 
     private fun initBanner() {
