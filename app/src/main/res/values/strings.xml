@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ecommerce</string>
+    <string name="choice_your_nfavourite_coffee">Choice your\nFavourite Coffee</string>
+    <string name="get_started">Get Started</string>
+    <string name="search_anything">Search anything...</string>
+    <string name="popular_coffees">Popular Coffees</string>
+    <string name="see_all">See all</string>
+    <string name="cart">Cart</string>
+    <string name="explorer">Explorer</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="my_order">My order</string>
+    <string name="profile">Profile</string>
+    <string name="categories">Categories</string>
+</resources>
