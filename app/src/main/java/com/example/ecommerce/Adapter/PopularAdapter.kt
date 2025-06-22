@@ -1,10 +1,12 @@
 package com.example.ecommerce.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.ecommerce.Activity.DetailActivity
 import com.example.ecommerce.Domain.ItemsModel
 import com.example.ecommerce.databinding.PopularViewholderBinding
 
@@ -32,6 +34,9 @@ class PopularAdapter(val items: MutableList<ItemsModel>) :
             .into(holder.binding.imageView5)
 
         holder.binding.view.setOnClickListener {
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("object", items[position])
+            context.startActivity(intent)
         }
     }
 
