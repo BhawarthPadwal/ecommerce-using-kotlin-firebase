@@ -11,4 +11,6 @@
     <string name="my_order">My order</string>
     <string name="profile">Profile</string>
     <string name="categories">Categories</string>
+    <string name="back">Back</string>
+    <string name="list">List</string>
 </resources>

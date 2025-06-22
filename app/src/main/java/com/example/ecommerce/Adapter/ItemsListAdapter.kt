@@ -6,19 +6,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ecommerce.Domain.ItemsModel
+import com.example.ecommerce.databinding.ItemItemViewholderBinding
 import com.example.ecommerce.databinding.PopularViewholderBinding
 
-class PopularAdapter(val items: MutableList<ItemsModel>) :
-    RecyclerView.Adapter<PopularAdapter.PopularViewHolder>() {
+class ItemsListAdapter(val items: MutableList<ItemsModel>) :
+    RecyclerView.Adapter<ItemsListAdapter.PopularViewHolder>() {
 
         lateinit var context: Context
 
-    inner class PopularViewHolder(val binding: PopularViewholderBinding) :
+    inner class PopularViewHolder(val binding: ItemItemViewholderBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularViewHolder {
         context = parent.context
-        val binding = PopularViewholderBinding.inflate(LayoutInflater.from(context), parent, false)
+        val binding = ItemItemViewholderBinding.inflate(LayoutInflater.from(context), parent, false)
         return PopularViewHolder(binding)
     }
 
@@ -32,6 +33,7 @@ class PopularAdapter(val items: MutableList<ItemsModel>) :
             .into(holder.binding.imageView5)
 
         holder.binding.view.setOnClickListener {
+
         }
     }
 

@@ -1,12 +1,14 @@
 package com.example.ecommerce.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ecommerce.Activity.ItemsListActivity
 import com.example.ecommerce.Domain.CategoryModel
 import com.example.ecommerce.R
 import com.example.ecommerce.databinding.CategoryViewholderBinding
@@ -41,7 +43,11 @@ class CategoryAdapter(val items: MutableList<CategoryModel>) :
                 notifyItemChanged(selectedPosition)
 
                 Handler(Looper.getMainLooper()).postDelayed({
-                    // Navigate or do something with items[adapterPosition]
+                    val intent = Intent(context, ItemsListActivity::class.java).apply {
+                        putExtra("id", item.id.toString())
+                        putExtra("title", item.title)
+                    }
+                    ContextCompat.startActivity(context, intent, null)
                 }, 500)
             }
         }
